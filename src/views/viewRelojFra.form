@@ -34,7 +34,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTabbedPane1" min="-2" max="-2" attributes="0"/>
+              <Component id="jTabbedPane1" min="-2" pref="718" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -86,7 +86,7 @@
                                       <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="74" max="32767" attributes="0"/>
+                              <EmptySpace pref="179" max="32767" attributes="0"/>
                               <Component id="jButtonActualizar" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -146,7 +146,7 @@
                               <Component id="jButtonGuardarActualizar" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="184" max="32767" attributes="0"/>
+                      <EmptySpace pref="253" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -338,7 +338,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="293" max="32767" attributes="0"/>
+                      <EmptySpace pref="398" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -361,7 +361,7 @@
                           <Component id="jTextFieldSegundoBD" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="214" max="32767" attributes="0"/>
+                      <EmptySpace pref="283" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jButtonCrearRelojBD" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButtonRelojEliminarBD" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -498,35 +498,52 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="jButtonStartReloj" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
-                              <Component id="jButtonStartRelojCount" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
-                              <Component id="jButtonActualizarRelojMov" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="jLabel10" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel10" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                                              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                                              <Component id="jTextInputHora" min="-2" pref="74" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jMinutoErrorMensaje1" min="-2" pref="236" max="-2" attributes="0"/>
+                                          <Component id="jHoraErrorMensaje1" min="-2" pref="245" max="-2" attributes="0"/>
+                                          <Component id="jSegundosMensajeError1" min="-2" pref="251" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jTextInputHora" alignment="0" pref="74" max="32767" attributes="0"/>
-                                  <Component id="jTextInputMinuto" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextInputSegundos" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="216" max="-2" attributes="0"/>
-                              <Component id="jLabelShowReloj" min="-2" pref="344" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <Component id="jTextInputMinuto" min="-2" pref="74" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                              <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jTextInputSegundos" min="-2" pref="74" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="1866" pref="160" max="32767" attributes="0"/>
+                      <EmptySpace pref="223" max="32767" attributes="0"/>
+                      <Component id="jLabelShowReloj" min="-2" pref="410" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                      <Component id="jButtonCrearRelojTh" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                      <Component id="jButtonStartRelojCount" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="jButtonActualizarRelojMov" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -540,24 +557,37 @@
                           <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextInputHora" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jHoraErrorMensaje1" min="-2" pref="15" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jTextInputMinuto" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jMinutoErrorMensaje1" min="-2" pref="13" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jTextInputSegundos" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="jLabelShowReloj" min="-2" pref="123" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jSegundosMensajeError1" min="-2" pref="18" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextInputMinuto" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelShowReloj" alignment="3" min="-2" pref="123" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextInputSegundos" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButtonStartReloj" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonCrearRelojTh" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButtonStartRelojCount" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButtonActualizarRelojMov" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="208" max="32767" attributes="0"/>
+                      <EmptySpace pref="270" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -573,15 +603,15 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="48" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="00:00:00"/>
+                <Property name="text" type="java.lang.String" value="AM 00:00:00"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButtonStartReloj">
+            <Component class="javax.swing.JButton" name="jButtonCrearRelojTh">
               <Properties>
                 <Property name="text" type="java.lang.String" value="crear reloj"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonStartRelojActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCrearRelojThActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonStartRelojCount">
@@ -625,6 +655,30 @@
             <Component class="javax.swing.JButton" name="jButtonActualizarRelojMov">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Actualizar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonActualizarRelojMovActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jMinutoErrorMensaje1">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="33" green="33" red="ff" type="rgb"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jHoraErrorMensaje1">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="33" green="0" red="ff" type="rgb"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jSegundosMensajeError1">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="33" green="33" red="ff" type="rgb"/>
+                </Property>
               </Properties>
             </Component>
           </SubComponents>

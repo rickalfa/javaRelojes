@@ -39,9 +39,6 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
     // creamos Hilo
     private Thread h1;
         
-        
-
-    
     
     /**
      * Creates new form viewRelojFra
@@ -56,8 +53,7 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
         
         h1 = new Thread(this);
         
-       
-                
+                    
         this.Relojes = new ControllerReloj();
         
         DefaultTableModel modelT = new DefaultTableModel();
@@ -127,7 +123,7 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
         jPanel3 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabelShowReloj = new javax.swing.JLabel();
-        jButtonStartReloj = new javax.swing.JButton();
+        jButtonCrearRelojTh = new javax.swing.JButton();
         jButtonStartRelojCount = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -136,6 +132,9 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
         jTextInputMinuto = new javax.swing.JTextField();
         jTextInputSegundos = new javax.swing.JTextField();
         jButtonActualizarRelojMov = new javax.swing.JButton();
+        jMinutoErrorMensaje1 = new javax.swing.JLabel();
+        jHoraErrorMensaje1 = new javax.swing.JLabel();
+        jSegundosMensajeError1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -236,7 +235,7 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jHoraErrorMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(2, 2, 2)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
                         .addComponent(jButtonActualizar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(70, 70, 70)
@@ -284,7 +283,7 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
                             .addComponent(jButtonActualizar))
                         .addGap(77, 77, 77)
                         .addComponent(jButtonGuardarActualizar)))
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addContainerGap(253, Short.MAX_VALUE))
         );
 
         jButtonGuardarActualizar.getAccessibleContext().setAccessibleName("guardar actualizacion");
@@ -370,7 +369,7 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jTextFieldminutoBD, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
                                 .addComponent(jTextFieldHoraBD)))))
-                .addContainerGap(293, Short.MAX_VALUE))
+                .addContainerGap(398, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -388,7 +387,7 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldSegundoBD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 214, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 283, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCrearRelojBD)
                     .addComponent(jButtonRelojEliminarBD)
@@ -405,12 +404,12 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
         jLabel10.setText("Reloj");
 
         jLabelShowReloj.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabelShowReloj.setText("00:00:00");
+        jLabelShowReloj.setText("AM 00:00:00");
 
-        jButtonStartReloj.setText("crear reloj");
-        jButtonStartReloj.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCrearRelojTh.setText("crear reloj");
+        jButtonCrearRelojTh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonStartRelojActionPerformed(evt);
+                jButtonCrearRelojThActionPerformed(evt);
             }
         });
 
@@ -446,36 +445,60 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
         });
 
         jButtonActualizarRelojMov.setText("Actualizar");
+        jButtonActualizarRelojMov.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonActualizarRelojMovActionPerformed(evt);
+            }
+        });
+
+        jMinutoErrorMensaje1.setForeground(new java.awt.Color(255, 51, 51));
+
+        jHoraErrorMensaje1.setForeground(new java.awt.Color(255, 0, 51));
+
+        jSegundosMensajeError1.setForeground(new java.awt.Color(255, 51, 51));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jButtonStartReloj)
-                        .addGap(96, 96, 96)
-                        .addComponent(jButtonStartRelojCount)
-                        .addGap(111, 111, 111)
-                        .addComponent(jButtonActualizarRelojMov))
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
+                        .addGap(36, 36, 36)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel13))
-                        .addGap(27, 27, 27)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextInputHora, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
-                            .addComponent(jTextInputMinuto)
-                            .addComponent(jTextInputSegundos))
-                        .addGap(216, 216, 216)
-                        .addComponent(jLabelShowReloj, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(160, 160, Short.MAX_VALUE))
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGap(13, 13, 13)
+                                        .addComponent(jLabel11)
+                                        .addGap(40, 40, 40)
+                                        .addComponent(jTextInputHora, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jMinutoErrorMensaje1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jHoraErrorMensaje1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jSegundosMensajeError1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(jLabel12)
+                        .addGap(26, 26, 26)
+                        .addComponent(jTextInputMinuto, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addComponent(jLabel13)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextInputSegundos, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 223, Short.MAX_VALUE)
+                .addComponent(jLabelShowReloj, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(94, 94, 94))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(jButtonCrearRelojTh)
+                .addGap(49, 49, 49)
+                .addComponent(jButtonStartRelojCount)
+                .addGap(52, 52, 52)
+                .addComponent(jButtonActualizarRelojMov)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -486,21 +509,31 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(jTextInputHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jHoraErrorMensaje1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextInputMinuto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12))
+                        .addGap(18, 18, 18)
+                        .addComponent(jMinutoErrorMensaje1, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextInputSegundos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel13)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabelShowReloj, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSegundosMensajeError1, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(123, 123, 123)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(jTextInputMinuto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelShowReloj, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(jTextInputSegundos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(105, 105, 105)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonStartReloj)
+                    .addComponent(jButtonCrearRelojTh)
                     .addComponent(jButtonStartRelojCount)
                     .addComponent(jButtonActualizarRelojMov))
-                .addContainerGap(208, Short.MAX_VALUE))
+                .addContainerGap(270, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Crear Reloj", jPanel3);
@@ -518,7 +551,7 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 718, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -566,7 +599,7 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
        
        if(validate_inputs){
        
-           System.out.print("datos BIEN ingresados \n");
+           System.out.print(" datos BIEN ingresados \n");
            
              int minuto = Integer.parseInt(minutoSinespacios);
               int hora = Integer.parseInt(horaSinespacios);
@@ -583,7 +616,7 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
        }
        else{
            
-            System.out.print("datos mal ingresados\n");
+            System.out.print(" datos mal ingresados\n");
             
     
        }
@@ -637,7 +670,42 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
        
       
     }
+      
+     private boolean mensajeErrorInputsPanel2(boolean inputHora, boolean inputMinuto, boolean inputSegundos)
+    {
         
+        if(inputHora && inputMinuto && inputSegundos)
+        {
+            
+            return true;
+            
+            
+        } else{
+           
+            System.out.print("datos mal ingresados");
+            
+            if(!inputHora)
+            {
+                jHoraErrorMensaje1.setText("Porfavor ingrese un valor valido");
+            }
+            
+            if(!inputMinuto)
+            {
+                jMinutoErrorMensaje1.setText("Porfavor ingrese un valor valido");
+            }
+            
+            if(!inputSegundos)
+            {
+            jSegundosMensajeError1.setText(" Porfavor ingrese un valor valido");
+            
+            }
+            
+            return false;
+            
+        }
+       
+      
+    }
     
     private void clearInputTexts()
     {
@@ -653,13 +721,21 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
     {
         
          jSegundosMensajeError.setText("");
-         
-          jMinutoErrorMensaje.setText("");
-           jHoraErrorMensaje.setText("");
+         jMinutoErrorMensaje.setText("");
+         jHoraErrorMensaje.setText("");
         
         
     }
     
+      private void clearErrorMensajePanel2()
+    {
+        
+         jSegundosMensajeError1.setText("");
+         jMinutoErrorMensaje1.setText("");
+         jHoraErrorMensaje1.setText("");
+        
+        
+    }
     
     private void jButtonGuardarActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActualizarActionPerformed
         // TODO add your handling code here:
@@ -820,16 +896,62 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldSegundoBDActionPerformed
 
-    private void jButtonStartRelojActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStartRelojActionPerformed
-        // TODO add your handling code here:
+    private void jButtonCrearRelojThActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCrearRelojThActionPerformed
         
-       h1.start();
+    // TODO add your handling code here:
+    
+        clearErrorMensajePanel2();
+    
+       String horaSinespacios = jTextInputHora.getText();
+       String minutoSinespacios = jTextInputMinuto.getText();
+       String segundoSinespacios = jTextInputSegundos.getText();
        
+       minutoSinespacios = minutoSinespacios.replaceAll("\\s+", "");
+       segundoSinespacios = segundoSinespacios.replaceAll("\\s+", "");///ELIMINAMOS LOS ESPACIOS
+       horaSinespacios = horaSinespacios.replaceAll("\\s+", "");///ELIMINAMOS LOS ESPA
        
+       ///VALIDATE HORA INPUT
+       boolean validateinputHora;
+      
+       validateinputHora = ControllerValidateInput.validateInputStrHora(horaSinespacios);
        
+       ////// validacion de inputminutos
+       boolean validateinputMinuto;
+       
+       validateinputMinuto = ControllerValidateInput.validateInputStrMinuto(minutoSinespacios);
+           
+       ///VALIDATE SEGUNDOSINPUT
+       boolean validateinputSegundos;
+         
+       validateinputSegundos = ControllerValidateInput.validateInputStrSegundos(segundoSinespacios);
+        
+       /// creamos mensajes en la interfaz grafica Para el Usuario en caso de que algun dato ingresado no sea valido
+        boolean validate_inputs = mensajeErrorInputsPanel2(validateinputHora,validateinputMinuto,validateinputSegundos);
+    
+        if(validate_inputs)
+        {
+              int minuto = Integer.parseInt(minutoSinespacios);
+              int hora = Integer.parseInt(horaSinespacios);
+              int segundos = Integer.parseInt(segundoSinespacios);
+               
+              this.RelojTh.setHora(hora);
+              this.RelojTh.setMinuto(minuto);
+              this.RelojTh.setSegundos(segundos);
+              
+                clearErrorMensajePanel2();
+                
+                clearInputTexts();    
+        }else{
+           
+            System.out.print(" datos mal ingresados\n");
+            
+    
+       }
+         
+ 
+       h1.start(); /// iniciamos el Hilo de proceso del Jframe 
           
-        
-    }//GEN-LAST:event_jButtonStartRelojActionPerformed
+    }//GEN-LAST:event_jButtonCrearRelojThActionPerformed
 
     private void jButtonStartRelojCountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStartRelojCountActionPerformed
 
@@ -848,6 +970,10 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
     private void jTextInputMinutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextInputMinutoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextInputMinutoActionPerformed
+
+    private void jButtonActualizarRelojMovActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarRelojMovActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonActualizarRelojMovActionPerformed
 
     /**
      * VIZAULIZACION DE DATOS EN EL JTABLE
@@ -934,12 +1060,13 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
     private javax.swing.JButton jButtonActualizarRelojMov;
     private javax.swing.JButton jButtonCrear;
     private javax.swing.JButton jButtonCrearRelojBD;
+    private javax.swing.JButton jButtonCrearRelojTh;
     private javax.swing.JButton jButtonEliminar;
     private javax.swing.JButton jButtonGuardarActualizar;
     private javax.swing.JButton jButtonRelojEliminarBD;
-    private javax.swing.JButton jButtonStartReloj;
     private javax.swing.JButton jButtonStartRelojCount;
     private javax.swing.JLabel jHoraErrorMensaje;
+    private javax.swing.JLabel jHoraErrorMensaje1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -955,12 +1082,14 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelShowReloj;
     private javax.swing.JLabel jMinutoErrorMensaje;
+    private javax.swing.JLabel jMinutoErrorMensaje1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel jSegundosMensajeError;
+    private javax.swing.JLabel jSegundosMensajeError1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
