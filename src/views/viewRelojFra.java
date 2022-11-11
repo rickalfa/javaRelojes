@@ -76,7 +76,7 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
           });
         
         
-         
+  
     }
 
     /**
@@ -131,7 +131,7 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
         jTextInputHora = new javax.swing.JTextField();
         jTextInputMinuto = new javax.swing.JTextField();
         jTextInputSegundos = new javax.swing.JTextField();
-        jButtonActualizarRelojMov = new javax.swing.JButton();
+        jButtonActualizarRelojCount = new javax.swing.JButton();
         jMinutoErrorMensaje1 = new javax.swing.JLabel();
         jHoraErrorMensaje1 = new javax.swing.JLabel();
         jSegundosMensajeError1 = new javax.swing.JLabel();
@@ -216,6 +216,10 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -235,14 +239,10 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jHoraErrorMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(2, 2, 2)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
-                        .addComponent(jButtonActualizar))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(26, 26, 26)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                        .addComponent(jButtonActualizar)
+                        .addGap(143, 143, 143)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(129, 129, 129)
@@ -444,10 +444,10 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
             }
         });
 
-        jButtonActualizarRelojMov.setText("Actualizar");
-        jButtonActualizarRelojMov.addActionListener(new java.awt.event.ActionListener() {
+        jButtonActualizarRelojCount.setText("Actualizar");
+        jButtonActualizarRelojCount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonActualizarRelojMovActionPerformed(evt);
+                jButtonActualizarRelojCountActionPerformed(evt);
             }
         });
 
@@ -497,7 +497,7 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
                 .addGap(49, 49, 49)
                 .addComponent(jButtonStartRelojCount)
                 .addGap(52, 52, 52)
-                .addComponent(jButtonActualizarRelojMov)
+                .addComponent(jButtonActualizarRelojCount)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -532,7 +532,7 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCrearRelojTh)
                     .addComponent(jButtonStartRelojCount)
-                    .addComponent(jButtonActualizarRelojMov))
+                    .addComponent(jButtonActualizarRelojCount))
                 .addContainerGap(270, Short.MAX_VALUE))
         );
 
@@ -609,6 +609,9 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
         
                 this.Relojes.crearNuevoReloj(NuevoReloj);
                 
+                
+                
+                
                 clearErrorMensaje();
                 
                 clearInputTexts();    
@@ -623,7 +626,7 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
       
 
        mostrarDatos();
-       
+          h1.start();
      
     }//GEN-LAST:event_jButtonCrearActionPerformed
 
@@ -828,7 +831,6 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
     private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
         // TODO add your handling code here:
         
-        ArrayList<Reloj> RelojesLocal = new ArrayList<>();
         
         int sizeRelojes = this.Relojes.GetRelojesSize();
         
@@ -941,15 +943,17 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
                 clearErrorMensajePanel2();
                 
                 clearInputTexts();    
+                
+                jLabelShowReloj.setText(this.RelojTh.showformatStrReloj());
+                
         }else{
            
             System.out.print(" datos mal ingresados\n");
             
     
        }
-         
- 
-       h1.start(); /// iniciamos el Hilo de proceso del Jframe 
+        
+      h1.start();
           
     }//GEN-LAST:event_jButtonCrearRelojThActionPerformed
 
@@ -971,9 +975,9 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextInputMinutoActionPerformed
 
-    private void jButtonActualizarRelojMovActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarRelojMovActionPerformed
+    private void jButtonActualizarRelojCountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarRelojCountActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonActualizarRelojMovActionPerformed
+    }//GEN-LAST:event_jButtonActualizarRelojCountActionPerformed
 
     /**
      * VIZAULIZACION DE DATOS EN EL JTABLE
@@ -1013,7 +1017,15 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
         
           jTable1.setModel(new javax.swing.table.DefaultTableModel(matriz, new String [] {"id_reloj","Hora","minuto","segundo"}));
         
-        }  
+        }  else{
+        
+              matriz[0][0]= "";
+              matriz[0][1]=""  ;
+              matriz[0][2]="" ;
+              matriz[0][3]="";
+        
+            jTable1.setModel(new javax.swing.table.DefaultTableModel(matriz, new String [] {"id_reloj","Hora","minuto","segundo"}));
+        }
         
         
     }
@@ -1056,8 +1068,8 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonActualizar;
+    private javax.swing.JButton jButtonActualizarRelojCount;
     private javax.swing.JButton jButtonActualizarRelojDB;
-    private javax.swing.JButton jButtonActualizarRelojMov;
     private javax.swing.JButton jButtonCrear;
     private javax.swing.JButton jButtonCrearRelojBD;
     private javax.swing.JButton jButtonCrearRelojTh;
@@ -1111,12 +1123,35 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
                 int Lhora = 0;
                 String Lstrhora;
         
-        while(count < 2000 )
+        while(count < 20000 )
         {
-            Lhora = this.RelojTh.getHora();
-            count +=1;
             
-             Lstrhora = String.valueOf(Lhora);
+        int Sizerelojes = this.Relojes.GetRelojesSize();
+        
+        String matriz[][] = new String[Sizerelojes][4];
+      
+            
+        if(Sizerelojes > 0){
+               for (int i = 0; i < Sizerelojes; i++) {
+            
+             
+                       matriz[i][0]= String.valueOf(i);
+                       matriz[i][1]="" + this.Relojes.showRelojindex(i).getHora();
+                       matriz[i][2]="" + this.Relojes.showRelojindex(i).getMinuto();
+                       matriz[i][3]="" + this.Relojes.showRelojindex(i).getSegundo();
+        
+                 }
+        
+        
+                jTable1.setModel(new javax.swing.table.DefaultTableModel(matriz, new String [] {"id_reloj","Hora","minuto","segundo run"}));
+        
+              }  
+            System.out.print("\n SIZE array Relojes :"+Sizerelojes+ "\n");
+            
+            /*+****************************************************************************************************************************
+            Vizualisacion de RELOJ INDIVIDUAL MOVIMIENTO 
+            */
+            
             
              //jLabelShowReloj.setText(Lstrhora+ ":"+ this.RelojTh.getMinuto()+":"+this.RelojTh.getSegundos());
              
@@ -1128,7 +1163,7 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
                  Thread.sleep(500);
                 }catch(InterruptedException e){}
         
-                System.out.print(count);
+                
         }
         
         System.out.print("Fin del Hilo");
