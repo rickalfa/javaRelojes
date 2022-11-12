@@ -9,18 +9,44 @@ package model;
  *
  * @author Alumnos
  */
-public class Reloj {
+
+import java.util.*;
+
+public class Reloj implements Runnable{
+
+    private int idReloj;
+    
+    private int hora;
+    
+    private int minuto;
+    
+    private float segundo;
+    
+    private Thread Th1;
+    
 
 
+    /**
+     * Constructor
+     */
    public Reloj()
    {
-         this.hora = 22;
+        this.hora = 22;
         this.minuto = 22;
-        
         this.segundo = 60;
+        
+        
+       
         
    }
     
+   /**
+    * CONSTRUCTOR SOBRECARGADO
+    * @param idreloj
+    * @param hora
+    * @param minuto
+    * @param segundo 
+    */
     public Reloj(int idreloj, int hora, int minuto, float segundo)
     {
         this.idReloj = idreloj;
@@ -31,17 +57,42 @@ public class Reloj {
         
         this.segundo = segundo;
         
+        this.Th1 = new Thread(this);
+        
+        Th1.start();
+        
     }
     
-    private int idReloj;
+  
+    public void startRelojCount()
+    {
+       Th1.start();
+        
+    }
     
-    private int hora;
     
-    private int minuto;
+    private void calcularTiempo()
+    {
+      if( segundo > 58 )
+        { 
+            segundo = -1;
+            minuto += 1;
+            
+        }
+        
+        if( minuto > 59)
+        {
+            minuto = 0;
+            hora += 1;
+        }
+        
+        if(hora > 23 ){
+        
+            hora = 0;
+        }
+        
+    }
     
-    private float segundo;
-
-   
         /**
      * @return the idReloj
      */
@@ -56,8 +107,7 @@ public class Reloj {
         this.idReloj = idReloj;
     }
 
-    
-    
+     
     ////  METODOS GET SETS
     public void setHora( int _hora)
     {
@@ -97,6 +147,34 @@ public class Reloj {
      */
     public void setSegundo(float segundo) {
         this.segundo = segundo;
+    }
+
+    @Override
+    public void run() {
+        
+        
+ 
+            int count = 0;
+        
+        while(count < 200 )
+        {
+            
+            calcularTiempo();
+            
+            segundo += 1;
+            
+            count +=1;
+            try{
+                
+            Thread.sleep(1000);
+            
+            }catch(InterruptedException e){}
+        
+           // System.out.print("\n segundos Reloj Tharray :"+segundo+ "\n");
+            
+        }
+        
+    
     }
     
     

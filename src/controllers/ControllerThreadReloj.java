@@ -59,13 +59,15 @@ public class ControllerThreadReloj implements Runnable {
     private int minuto;
     private int segundos;
     
-    private Thread h1;
+    private Thread h2;
     
     public ControllerThreadReloj(){
     
         hora = 0;
+        minuto = 0;
+        segundos = 0;
         
-        h1 = new Thread(this);
+        h2 = new Thread(this);
         
        
     
@@ -73,7 +75,7 @@ public class ControllerThreadReloj implements Runnable {
     
     public void startRelojCount()
     {
-         h1.start();
+         h2.start();
     
         
     }
@@ -83,10 +85,16 @@ public class ControllerThreadReloj implements Runnable {
        String formatReloj = "";
        
        String ceroSeg = "";
+       String ceroMinuto = "";
+       String ceroHora = "";
+       String pm_am_str = "";
        
        ceroSeg = (segundos < 10 )?"0":"";
+       ceroMinuto =(minuto < 10 )?"0":"";
+       ceroHora = (hora < 10 )?"0":"";
+       pm_am_str = (hora > 12)?"PM":"AM";
        
-       formatReloj = ""+ceroSeg+segundos;
+       formatReloj = pm_am_str +" - "+ceroHora+hora+":"+ceroMinuto+minuto+":"+ceroSeg+segundos;
        
        return formatReloj;
         
@@ -96,20 +104,20 @@ public class ControllerThreadReloj implements Runnable {
     private void calcularTiempo()
     {
         
-        if( segundos > 60 )
+        if( segundos > 58 )
         { 
-            segundos = 0;
+            segundos = -1;
             minuto += 1;
             
         }
         
-        if( minuto > 60)
+        if( minuto > 59)
         {
             minuto = 0;
             hora += 1;
         }
         
-        if(hora > 24 ){
+        if(hora > 23 ){
         
             hora = 0;
         }
@@ -128,6 +136,7 @@ public class ControllerThreadReloj implements Runnable {
              calcularTiempo();
             
             segundos += 1;
+            
             count +=1;
             try{
                 
@@ -135,7 +144,7 @@ public class ControllerThreadReloj implements Runnable {
             
             }catch(InterruptedException e){}
         
-            System.out.print(hora);
+            System.out.print(segundos);
         }
         
         

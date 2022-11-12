@@ -1145,7 +1145,8 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
         
                 jTable1.setModel(new javax.swing.table.DefaultTableModel(matriz, new String [] {"id_reloj","Hora","minuto","segundo run"}));
         
-              }  
+              }
+        
             System.out.print("\n SIZE array Relojes :"+Sizerelojes+ "\n");
             
             /*+****************************************************************************************************************************
