@@ -12,6 +12,8 @@ package model;
 
 import java.util.*;
 
+import model.ConnDb;
+
 public class Reloj implements Runnable{
 
     private int idReloj;
@@ -24,7 +26,7 @@ public class Reloj implements Runnable{
     
     private Thread Th1;
     
-
+    private ConnDb ConexionDb;
 
     /**
      * Constructor
@@ -35,7 +37,7 @@ public class Reloj implements Runnable{
         this.minuto = 22;
         this.segundo = 60;
         
-        
+        ConexionDb = new ConnDb();
        
         
    }
