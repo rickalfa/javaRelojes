@@ -167,5 +167,38 @@ public class ControllerConMysql {
         
     }
     
+    public int ActualizarRelojdb(int id_reloj, int hora, int minuto , int segundos)
+    {
+        String indexstr = String.valueOf(id_reloj);
+        
+        String horastr = String.valueOf(hora);
+        String minutostr = String.valueOf(minuto);
+        String segundosstr = String.valueOf(segundos);
+        
+        
+        
+        String querysql = "update reloj set hora='"+horastr+"', minuto='"+minutostr+"', segundos='"+segundosstr+"' where id_reloj='"+id_reloj+"' ";
+        
+        
+        try{
+        
+            Conndb.ejecutarQuery(querysql);
+            
+            System.out.print("la query UPDATE DONE ¡¡");
+            
+            return 1;
+        
+        }catch(Exception e){
+        
+            System.out.print("la query UPDATE FAIL ¡¡");
+            
+            System.out.println(e);
+            
+            return 0;
+        
+        }
+        
+        
+    }
     
 }

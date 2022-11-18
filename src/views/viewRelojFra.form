@@ -317,7 +317,9 @@
                               <Component id="jButtonCrearRelojBD" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                               <Component id="jButtonRelojEliminarBD" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                              <Component id="jButtonActualizarViewDB" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
                               <Component id="jButtonActualizarRelojDB" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
@@ -370,11 +372,12 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabelErrorSegundos3" min="-2" pref="19" max="-2" attributes="0"/>
-                      <EmptySpace pref="104" max="32767" attributes="0"/>
+                      <EmptySpace pref="90" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jButtonCrearRelojBD" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButtonRelojEliminarBD" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButtonActualizarRelojDB" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonActualizarViewDB" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
@@ -462,8 +465,11 @@
             </Component>
             <Component class="javax.swing.JButton" name="jButtonActualizarRelojDB">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Actualizar"/>
+                <Property name="text" type="java.lang.String" value="Guardar Cambios"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonActualizarRelojDBActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel7">
               <Properties>
@@ -515,6 +521,14 @@
                   <Color blue="0" green="0" red="cc" type="rgb"/>
                 </Property>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButtonActualizarViewDB">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Actualizar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonActualizarViewDBActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

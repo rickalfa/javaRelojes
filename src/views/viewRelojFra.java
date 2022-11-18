@@ -148,6 +148,7 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
         jLabelErrorHora3 = new javax.swing.JLabel();
         jLabelErrorMinuto3 = new javax.swing.JLabel();
         jLabelErrorSegundos3 = new javax.swing.JLabel();
+        jButtonActualizarViewDB = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabelShowReloj = new javax.swing.JLabel();
@@ -350,7 +351,12 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
 
         jLabel6.setText("Reloj ");
 
-        jButtonActualizarRelojDB.setText("Actualizar");
+        jButtonActualizarRelojDB.setText("Guardar Cambios");
+        jButtonActualizarRelojDB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonActualizarRelojDBActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Hora");
 
@@ -382,6 +388,13 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
 
         jLabelErrorSegundos3.setForeground(new java.awt.Color(204, 0, 0));
 
+        jButtonActualizarViewDB.setText("Actualizar");
+        jButtonActualizarViewDB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonActualizarViewDBActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -394,7 +407,9 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
                         .addComponent(jButtonCrearRelojBD)
                         .addGap(54, 54, 54)
                         .addComponent(jButtonRelojEliminarBD)
-                        .addGap(45, 45, 45)
+                        .addGap(47, 47, 47)
+                        .addComponent(jButtonActualizarViewDB)
+                        .addGap(139, 139, 139)
                         .addComponent(jButtonActualizarRelojDB))
                     .addComponent(jLabel5)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -436,11 +451,12 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
                     .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelErrorSegundos3, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCrearRelojBD)
                     .addComponent(jButtonRelojEliminarBD)
-                    .addComponent(jButtonActualizarRelojDB))
+                    .addComponent(jButtonActualizarRelojDB)
+                    .addComponent(jButtonActualizarViewDB))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addGap(31, 31, 31)
@@ -1161,6 +1177,86 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldHoraBDActionPerformed
 
+    private void jButtonActualizarRelojDBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarRelojDBActionPerformed
+        // TODO add your handling code here:
+        clearErrorMensajePanel3();
+        
+   
+              
+       String horaSinespacios = jTextFieldHoraBD.getText();
+       String minutoSinespacios = jTextFieldminutoBD.getText();
+       String segundoSinespacios = jTextFieldSegundoBD.getText();
+       
+        
+       minutoSinespacios = minutoSinespacios.replaceAll("\\s+", "");
+       horaSinespacios = horaSinespacios.replaceAll("\\s+", "");
+       segundoSinespacios = segundoSinespacios.replaceAll("\\s+", "");
+   
+       
+              ///VALIDATE HORA INPUT
+       boolean validateinputHora;
+       
+       validateinputHora = ControllerValidateInput.validateInputStrHora(horaSinespacios);
+       
+       
+       ////// validacion de inputminutos
+       boolean validateinputMinuto;
+       
+       validateinputMinuto = ControllerValidateInput.validateInputStrMinuto(minutoSinespacios);
+       
+       
+       ///VALIDATE SEGUNDOSINPUT
+       boolean validateinputSegundos;
+         
+       validateinputSegundos = ControllerValidateInput.validateInputStrSegundos(segundoSinespacios);
+       
+        /// Comprovamos las entradas de datos y mandamos un mensaje en caso de arojar un error
+        boolean validate_inputs = mensajeErrorInputsPanel3(validateinputHora,validateinputMinuto,validateinputSegundos);
+       
+       
+       
+       if(validate_inputs){
+        
+               
+            int horaint = Integer.valueOf(jTextFieldHoraBD.getText());
+            int minutoint = Integer.valueOf(jTextFieldminutoBD.getText());
+            int segundosint = Integer.valueOf(jTextFieldSegundoBD.getText());
+        
+        
+            int state = this.ConRelojDb.ActualizarRelojdb(id_reloj, horaint, minutoint ,segundosint);
+        
+           if(state == 1){
+        
+            System.out.print("registro actualziado");
+            
+            
+            
+           }else{
+        
+            System.out.print("registro FAIL");
+           }
+        clearErrorMensajePanel3();
+        
+       }
+         mostrarDatosBd();
+         
+    }//GEN-LAST:event_jButtonActualizarRelojDBActionPerformed
+
+    private void jButtonActualizarViewDBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarViewDBActionPerformed
+        // TODO add your handling code here:
+        clearErrorMensajePanel3();
+        
+        
+       jTextFieldHoraBD.setText(hora);
+       jTextFieldminutoBD.setText(minuto);
+       jTextFieldSegundoBD.setText(segundo);
+       
+       
+       
+        
+        
+    }//GEN-LAST:event_jButtonActualizarViewDBActionPerformed
+
     /**
      * VIZAULIZACION DE DATOS EN EL JTABLE
      */
@@ -1286,6 +1382,7 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
     private javax.swing.JButton jButtonActualizar;
     private javax.swing.JButton jButtonActualizarRelojCount;
     private javax.swing.JButton jButtonActualizarRelojDB;
+    private javax.swing.JButton jButtonActualizarViewDB;
     private javax.swing.JButton jButtonCrear;
     private javax.swing.JButton jButtonCrearRelojBD;
     private javax.swing.JButton jButtonCrearRelojTh;
