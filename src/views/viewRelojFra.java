@@ -88,6 +88,19 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
           });
         
         
+                  jTableBd.addMouseListener(new MouseAdapter(){
+            DefaultTableModel modelT = new DefaultTableModel();
+            public void mouseClicked(MouseEvent e){
+                int i = jTableBd.getSelectedRow();
+                id_reloj = Integer.parseInt(jTableBd.getValueAt(i, 0).toString());
+                hora = (jTableBd.getValueAt(i, 1).toString());
+                minuto = (jTableBd.getValueAt(i, 2).toString());
+                segundo = (jTableBd.getValueAt(i, 3).toString());
+                
+            }
+          });
+         
+         
   
     }
 
@@ -1038,6 +1051,21 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
 
     private void jButtonRelojEliminarBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRelojEliminarBDActionPerformed
         // TODO add your handling code here:
+        
+         int result = this.ConRelojDb.EliminarRelojDB(id_reloj);
+        
+         if(result == 1)
+         {
+             System.out.print("registro eliminado con exito");
+         
+         }else{
+         
+             System.out.print("No se pudo Eliminar el registro");
+         }
+         
+        mostrarDatosBd();
+        
+        
     }//GEN-LAST:event_jButtonRelojEliminarBDActionPerformed
 
     private void jTextFieldminutoBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldminutoBDActionPerformed

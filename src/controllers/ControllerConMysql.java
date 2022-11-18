@@ -65,7 +65,7 @@ public class ControllerConMysql {
     public  String[][] ObtenerTodosRelojes()
     {
         
-        String ElementRow[] = new String[100];
+        String ElementRow[][] = new String[100][4];
         int countmax = 0;
         int count = 0; 
         int i = 0;
@@ -88,16 +88,16 @@ public class ControllerConMysql {
             //System.out.println("minuto : "+resultquery.getString("minuto") );
             //System.out.println("segundos : "+resultquery.getString("segundos")+ "\n" );
             
-             ElementRow[count] =  resultquery.getString("id_reloj");
-             ElementRow[count + 1] =  resultquery.getString("hora");
-             ElementRow[count + 2] =  resultquery.getString("minuto");
-             ElementRow[count + 3] =  resultquery.getString("segundos");
+             ElementRow[count][0] =  resultquery.getString("id_reloj");
+             ElementRow[count][1] =  resultquery.getString("hora");
+             ElementRow[count][2] =  resultquery.getString("minuto");
+             ElementRow[count][3] =  resultquery.getString("segundos");
              
              
-             System.out.println("id_reloj : "+ElementRow[count] );
-             System.out.println("hora : "+ElementRow[count + 1] );
-             System.out.println("minuto : "+ElementRow[count + 2] );
-              System.out.println("Segundos : "+ElementRow[count + 3] );
+             System.out.println("id_reloj : "+ElementRow[count][0] );
+             System.out.println("hora : "+ElementRow[count][1] );
+             System.out.println("minuto : "+ElementRow[count][2] );
+              System.out.println("Segundos : "+ElementRow[count][3] );
             
             count += 1;
         }
@@ -114,10 +114,10 @@ public class ControllerConMysql {
         while(i < count)
         {
                
-            matrizResult[i][0] = ElementRow[i];
-            matrizResult[i][1] = ElementRow[i + 1];
-            matrizResult[i][2] = ElementRow[i + 2];
-            matrizResult[i][3] = ElementRow[i + 3];
+            matrizResult[i][0] = ElementRow[i][0];
+            matrizResult[i][1] = ElementRow[i][1];
+            matrizResult[i][2] = ElementRow[i][2];
+            matrizResult[i][3] = ElementRow[i][3];
             
             i +=1;
                
@@ -140,7 +140,32 @@ public class ControllerConMysql {
     }
     
     
-    
+    public int EliminarRelojDB( int index)
+    {
+        
+        String indexstr = String.valueOf(index);
+        
+        String querysql = "delete from reloj where id_reloj='"+indexstr+"' ";
+        
+        
+        try{
+        
+            Conndb.ejecutarQuery(querysql);
+            
+            
+            return 1;
+        
+        }catch(Exception e){
+        
+            
+            System.out.println(e);
+            
+            return 0;
+        
+        }
+        
+        
+    }
     
     
 }
