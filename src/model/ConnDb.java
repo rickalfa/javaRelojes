@@ -62,7 +62,7 @@ public class ConnDb {
             
              Pstm.execute();
              
-            Conn.close();
+           
             
             return 1;
             
@@ -97,7 +97,7 @@ public class ConnDb {
             
              ResultSet respuestaQuery = Pstm.executeQuery();
              
-            Conn.close();
+         
             
             return respuestaQuery;
             
