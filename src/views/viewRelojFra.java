@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.table.DefaultTableModel;
+import java.sql.ResultSet;
 
 
 
@@ -1150,22 +1151,30 @@ public class viewRelojFra extends javax.swing.JFrame implements Runnable {
     private void mostrarDatosBd()
     {
         
-        this.ConRelojDb.ObtenerTodosRelojes();
+        String resultquery[][] = this.ConRelojDb.ObtenerTodosRelojes();
         
        
-        int Sizerelojes = 3;
+        int Sizerelojes = resultquery.length;
+        
+        //System.out.print("Tamaño del areglo" + Sizerelojes);
+        
         String matriz[][] = new String[Sizerelojes][4];
         
-        Reloj Relojobj = this.Relojes.showRelojindex(0);
+        //Reloj Relojobj = this.Relojes.showRelojindex(0);
         
+       
           
         if(Sizerelojes > 0){
           for (int i = 0; i < Sizerelojes; i++) {
-            
+              
+               matriz[i][0]= resultquery[i][0];
+               matriz[i][1]= resultquery[i][1];
+               matriz[i][2]= resultquery[i][2];
+               matriz[i][3]= resultquery[i][3];
+                 
             }
-        
-        
-          //jTableBd.setModel(new javax.swing.table.DefaultTableModel(matriz, new String [] {"id_reloj","Hora","minuto","segundo"}));
+         
+          jTableBd.setModel(new javax.swing.table.DefaultTableModel(matriz, new String [] {"id_reloj","Hora","minuto","segundo"}));
         
         } 
         

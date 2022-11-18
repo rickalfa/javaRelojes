@@ -62,9 +62,14 @@ public class ControllerConMysql {
         
     }
     
-    public void ObtenerTodosRelojes()
+    public  String[][] ObtenerTodosRelojes()
     {
         
+        String ElementRow[] = new String[100];
+        int countmax = 0;
+        int count = 0; 
+        int i = 0;
+          
         String querysql = "select * from reloj";
         
         try{
@@ -73,25 +78,61 @@ public class ControllerConMysql {
         
         System.out.print(" DONE Query Select * : \n");
         
+      
+        
+       
+        while(resultquery.next())
+        {
+            
+            //System.out.println("Hora : "+resultquery.getString("hora") );
+            //System.out.println("minuto : "+resultquery.getString("minuto") );
+            //System.out.println("segundos : "+resultquery.getString("segundos")+ "\n" );
+            
+             ElementRow[count] =  resultquery.getString("id_reloj");
+             ElementRow[count + 1] =  resultquery.getString("hora");
+             ElementRow[count + 2] =  resultquery.getString("minuto");
+             ElementRow[count + 3] =  resultquery.getString("segundos");
+             
+             
+             System.out.println("id_reloj : "+ElementRow[count] );
+             System.out.println("hora : "+ElementRow[count + 1] );
+             System.out.println("minuto : "+ElementRow[count + 2] );
+              System.out.println("Segundos : "+ElementRow[count + 3] );
+            
+            count += 1;
+        }
+        
+        countmax = count;
+        
+        System.out.print(countmax);
+        
+        String[][] matrizResult = new String[count][4];
         //resultquery.getArray(1);
        
         //System.out.print(resultquery.getArray(1).toString());
         
-        while(resultquery.next())
+        while(i < count)
         {
+               
+            matrizResult[i][0] = ElementRow[i];
+            matrizResult[i][1] = ElementRow[i + 1];
+            matrizResult[i][2] = ElementRow[i + 2];
+            matrizResult[i][3] = ElementRow[i + 3];
             
-            System.out.println(resultquery.getString("hora") );
-            System.out.println(resultquery.getString("minuto") );
-            System.out.println(resultquery.getString("segundos") );
-            
+            i +=1;
+               
         }
         
         
+        
+        return matrizResult;
         
         }catch(Exception e){
         
             System.out.print(" fallo en la Query Select *\n");
             System.out.print(e);
+            
+            return null;
            
         }
         
